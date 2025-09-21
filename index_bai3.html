@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-areas: "header header" "left right" "footer footer";
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        #header {
+            grid-area: header;
+            background-color: hsl(204, 80%, 54%);
+            padding: 10px;
+            color: #ffe0e0;
+        }
+        
+        #left {
+            grid-area: left;
+            background-color: hsl(204, 80%, 54%);
+            padding: 10px;
+            color: #ffe0e0;
+        }
+        
+        #right {
+            grid-area: right;
+            background-color: hsl(204, 80%, 54%);
+            padding: 10px;
+            color: #ffe0e0;
+        }
+        
+        #footer {
+            grid-area: footer;
+            background-color: hsl(204, 80%, 54%);
+            padding: 10px;
+            color: #ffe0e0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            list-style-type: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        #right img {
+            margin-top: 10px;
+            height: auto;
+            border-radius: 8px;
+            width: 800px;
+        }
+        
+        #right h3.tagline {
+            margin-top: 5px;
+            font-style: italic;
+            color: #392ddc;
+        }
+        
+        #right p.tag {
+            margin-top: 1px;
+            font-style: italic;
+            color: #1b4bd0;
+        }
+        
+        .counter {
+            font-size: 12px;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="submenu">
+                <ul>
+                    <li>Home</li>
+                    <li>Products</li>
+                    <li>Services</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div id="left">
+            <h2>Registration information</h2>
+            <p>Start your travel planning right now our on-line tour registration form. Jus tell us a little about yourself and your group and one of our travel experts will contact you to create the perfect tour package custom built for your group's needs
+            </p>
+            <form id="registerForm">
+                <label for="title">Title:</label>
+                <select id="title" name="title">
+                  <option>Mr.</option>
+                  <option>Mrs.</option>
+                </select><br><br>
+
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="First Name" required />
+                <span class="counter" id="nameCount">0 ký tự</span><br><br>
+
+                <label for="address">Mailing Address:</label>
+                <input type="text" id="address" name="address" /><br><br>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" /><br><br>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" /><br>
+
+                <label for="questions">Specific questions or requests about your tour:</label>
+                <textarea id="questions" name="questions" rows="4"></textarea><br>
+
+                <button type="submit" id="btnSubmit">Submit</button>
+                <button type="reset" id="btnReset">Reset</button>
+            </form>
+        </div>
+        <div id="right">
+            <img src="https://thuthuatnhanh.com/wp-content/uploads/2020/01/anh-bau-troi-xanh-va-mat-nuoc.jpg" alt="Ảnh biển xanh">
+            <h3 class="tagline">You've arrived.</h3>
+            <p class="tag">Journeys as great as the destinations.</p>
+        </div>
+        <div id="footer">
+            ©2016 Sky World Tours. All rights reserved.<br> Contact information: Student Name | Student ID | Testing date: 16 Sept 2016
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById("registerForm");
+        const nameInput = document.getElementById("name");
+        const nameCount = document.getElementById("nameCount");
+        const btnSubmit = document.getElementById("btnSubmit");
+        const btnReset = document.getElementById("btnReset");
+
+        // Đếm ký tự khi nhập tên
+        nameInput.addEventListener("input", function() {
+            nameCount.textContent = nameInput.value.length + " ký tự";
+        });
+
+        // Đổi màu khi rê chuột vào nút
+        [btnSubmit, btnReset].forEach(btn => {
+            btn.addEventListener("mouseover", () => btn.style.backgroundColor = "orange");
+            btn.addEventListener("mouseout", () => btn.style.backgroundColor = "");
+        });
+
+        // Xử lý khi submit
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = nameInput.value.trim();
+            const city = document.getElementById("city").value.trim();
+            const country = document.getElementById("country").value.trim();
+
+            if (name === "" || city === "" || country === "") {
+                alert("Vui lòng nhập đầy đủ Họ tên, City và Country!");
+                return;
+            }
+
+            alert("Cảm ơn " + name + " đã đăng ký tour!");
+            console.log("Thông tin người dùng:");
+            console.log("Tên:", name);
+            console.log("City:", city);
+            console.log("Country:", country);
+        });
+
+        // Reset form
+        form.addEventListener("reset", function() {
+            alert("Form đã được reset.");
+            nameCount.textContent = "0 ký tự";
+        });
+    </script>
+</body>
+
+</html>

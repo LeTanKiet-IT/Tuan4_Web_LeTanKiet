@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autumn Travel Company</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #container {
+            display: grid;
+            grid-template-areas: "header header" "menu menu" "banner banner" "left right" "footer footer";
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto auto 1fr auto;
+            gap: 20px;
+        }
+        
+        .header {
+            grid-area: header;
+            background: #a34d0d;
+            padding: 15px;
+        }
+        
+        .header h1 {
+            color: #d8f19c;
+            margin: 0;
+            text-shadow: 1px 1px 2px #000;
+            font-size: 100px;
+        }
+        
+        .menu {
+            grid-area: menu;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        
+        .menu ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .menu li {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 50px;
+            color: crimson;
+        }
+        
+        .menu li:hover {
+            background: #eee;
+        }
+        
+        .banner {
+            grid-area: banner;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .content-left {
+            grid-area: left;
+            padding: 20px;
+        }
+        
+        .content-left h2 {
+            color: #b35e1a;
+            font-size: 80px;
+        }
+        
+        .content-left .intro {
+            font-style: italic;
+            color: #999900;
+            font-size: 50px;
+        }
+        
+        .signup-form input {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 1px solid #aaa;
+            font-size: 50px;
+        }
+        
+        .signup-form button {
+            background: #999900;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 50px;
+        }
+        
+        .signup-form button:hover {
+            background: #666600;
+        }
+        
+        .content-right {
+            grid-area: right;
+            border-left: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .content-right h3 {
+            color: #a34d0d;
+            font-size: 80px;
+        }
+        
+        .links {
+            list-style: square;
+            padding-left: 20px;
+            color: crimson;
+            font-size: 50px;
+        }
+        
+        .more-info {
+            display: flex;
+            margin-top: 10px;
+            font-size: 70px;
+        }
+        
+        .more-info img {
+            width: 30%;
+            margin-right: 10px;
+        }
+        
+        .footer {
+            grid-area: footer;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            font-size: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="header">
+            <h1>AUTUMN TRAVEL COMPANY</h1>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Products</li>
+                <li>Services</li>
+                <li>Order</li>
+            </ul>
+        </div>
+
+        <div class="banner">
+            <img src="https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-anh-la-vang-roi.jpg" alt="Banner">
+        </div>
+
+        <div class="content-left">
+            <h2>Sign up for membership benefits</h2>
+            <p class="intro">
+                Our philosophical values are transparency, respect, formality and responsibility. Our stimulus is your enthusiasm. Our motto is your satisfaction.
+            </p>
+
+            <form class="signup-form">
+                <input type="text" placeholder="Username"><br>
+                <input type="email" placeholder="E-mail"><br>
+                <input type="password" placeholder="Password"><br>
+                <input type="password" placeholder="Retype password"><br><br>
+                <button>SIGN ME UP</button>
+            </form>
+        </div>
+
+        <div class="content-right">
+            <h3>Links</h3>
+            <ul class="links">
+                <li>Make your Own Tour</li>
+                <li>Maldives Tours</li>
+                <li>Nature & Adventure</li>
+                <li>Readymade Tours</li>
+                <li>Europe Tours</li>
+                <li>Rusia Tours</li>
+            </ul>
+
+            <h3>More info</h3>
+            <div class="more-info">
+                <img src="https://antimatter.vn/wp-content/uploads/2022/04/anh-la-vang-roi-con-duong.jpg" alt="Leaf">
+                <p>
+                    Our purpose is the client who gives to us the opportunity to serve and to make known the reality around the world.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2017 Software Engineering Department | Test Date: 16 Sept 2017
+        </div>
+    </div>
+
+    <script>
+        // 1. Thông báo khi click menu
+        document.querySelectorAll(".menu li").forEach(item => {
+            item.addEventListener("click", () => {
+                alert("Bạn vừa chọn: " + item.textContent);
+            });
+        });
+
+        // 2. Đổi màu nền header khi double click
+        const header = document.querySelector(".header");
+        header.addEventListener("dblclick", () => {
+            header.style.backgroundColor =
+                header.style.backgroundColor === "darkgreen" ? "#a34d0d" : "darkgreen";
+        });
+
+        // 3. Banner tự động đổi ảnh có hiệu ứng fade
+        const bannerImg = document.querySelector(".banner img");
+        const bannerList = [
+            "https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-anh-la-vang-roi.jpg",
+            "https://antimatter.vn/wp-content/uploads/2022/04/anh-la-vang-roi-con-duong.jpg",
+            "https://imghttps://toigingiuvedep.vn/wp-content/uploads/2022/06/hinh-anh-la-vang-roi-1-800x600.jpg.freepik.com/free-photo/autumn-landscape-pathway.jpg"
+        ];
+        let index = 0;
+        setInterval(() => {
+            bannerImg.style.opacity = 0;
+            setTimeout(() => {
+                index = (index + 1) % bannerList.length;
+                bannerImg.src = bannerList[index];
+                bannerImg.style.opacity = 1;
+            }, 1000);
+        }, 4000);
+
+        // 4. Kiểm tra form khi submit
+        const form = document.querySelector(".signup-form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const inputs = form.querySelectorAll("input");
+            let valid = true;
+            inputs.forEach(input => {
+                if (!input.value) valid = false;
+            });
+            if (!valid) {
+                alert("Vui lòng điền đầy đủ thông tin!");
+            } else {
+                alert("Đăng ký thành công! Xin chào " + inputs[0].value);
+                form.reset();
+            }
+        });
+
+        // 5. Hover vào link đổi màu chữ
+        const links = document.querySelectorAll(".links li");
+        links.forEach(link => {
+            link.addEventListener("mouseover", () => {
+                link.style.color = "blue";
+            });
+            link.addEventListener("mouseout", () => {
+                link.style.color = "crimson";
+            });
+        });
+
+        // 6. Thêm đồng hồ thời gian thực ở footer
+        const footer = document.querySelector(".footer");
+        const clock = document.createElement("div");
+        footer.appendChild(clock);
+        setInterval(() => {
+            const now = new Date();
+            clock.textContent = "Bây giờ là: " + now.toLocaleTimeString();
+        }, 1000);
+    </script>
+</body>
+
+</html>

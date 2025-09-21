@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowerBox 360</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 14px;
+        }
+        
+        #header {
+            background-color: #1e4a7a;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        
+        #header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        #header p {
+            margin: 0;
+            font-size: 20px;
+            font-style: italic;
+        }
+        
+        #search {
+            display: flex;
+            align-items: center;
+        }
+        
+        #search input[type="text"] {
+            padding: 5px;
+            font-size: 13px;
+        }
+        
+        #search button {
+            padding: 5px 10px;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+        
+        #menu {
+            background-color: #35558a;
+            padding: 5px 20px;
+        }
+        
+        #menu ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #menu li {
+            margin-left: 15px;
+            font-weight: bold;
+            background-color: #496da9;
+            padding: 8px 15px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        #menu li:hover {
+            background-color: #2f4f7d;
+        }
+        
+        #container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        h2 {
+            color: #6b3e3e;
+            margin-top: 0;
+        }
+        
+        #left form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        #left input,
+        #left textarea {
+            padding: 5px;
+            font-size: 13px;
+            width: 90%;
+        }
+        
+        #left button {
+            margin-top: 5px;
+            padding: 5px 15px;
+        }
+        
+        #left em {
+            color: #c00;
+            font-size: 13px;
+        }
+        
+        #center {
+            font-size: 20px;
+        }
+        
+        #right img {
+            max-width: 50%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        #right p {
+            font-size: 20px;
+        }
+        
+        #footer {
+            background-color: #1e4a7a;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+        
+        #footer a {
+            color: lightblue;
+            text-decoration: none;
+        }
+        
+        .counter {
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <div>
+            <h1>FlowerBox 360</h1>
+            <p>...to get your daily dose of luxury roses!</p>
+        </div>
+        <div id="search">
+            <input type="text" id="searchInput" placeholder="Search the site...">
+            <button id="searchBtn">GO</button>
+        </div>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li>Home</li>
+            <li>Promotion</li>
+            <li>Gift Baskets</li>
+            <li>Flower Services</li>
+            <li>About</li>
+        </ul>
+    </div>
+
+
+    <div id="container">
+        <div id="left">
+            <h2>Why Not Contact Us Today!</h2>
+            <p><em>For FlowerBox 360 shoppers, that means not only can you send your friends and loved ones the highest
+          quality
+          flowers found on online, but that you can do so at a great value.</em></p>
+            <form id="contactForm">
+                Name: <input type="text" id="name"><span class="counter" id="nameCount">0 ký tự</span><br> Email: <input type="email" id="email"><br> Telephone: <input type="text" id="tel"><br> Subject: <input type="text" id="subject"><br> Message:
+                <textarea
+                    rows="4" id="message"></textarea><br>
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+            </form>
+        </div>
+
+
+        <div id="center">
+            <h2>FlowerBox 360 Info!</h2>
+            <p>Operating Hours:<br> Monday-Friday: 9.00am-5.00pm.<br> Saturday: 9.00am-1.00pm.<br> Sunday: Closed (No Deliveries)<br> ORDER ONLINE 24/7
+            </p>
+            <p>Software Engineering Dept.<br> Information Technology Faculty<br> First Floor, H Building
+            </p>
+            <p>12 Nguyen Van Bao St., Ward 4<br> Go Vap District<br> Ho Chi Minh City<br> Tel: 0283 8940 390<br> Fax: 0283 9940 954
+            </p>
+        </div>
+
+
+        <div id="right">
+            <h2>Discounts & Specials</h2>
+            <img src="https://image-us.eva.vn/upload/3-2022/images/2022-08-12/image31-1660292012-423-width2048height1365.jpg" alt="Flower">
+            <p id="discountText">FlowerBox 360 offers many great discounts throughout the year, from coupons and coupon codes, to promo codes and other savings. We also offer military flower discounts to our wonderful troops!</p>
+            <p><b id="readMore">Read More »</b></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Copyright © 2017 - All Rights Reserved - <a href="#">Software Engineering Department - Industrial University of Ho
+      Chi Minh City</a>
+    </div>
+
+
+    <script>
+        const form = document.getElementById("contactForm");
+        const nameInput = document.getElementById("name");
+        const nameCount = document.getElementById("nameCount");
+        const searchBtn = document.getElementById("searchBtn");
+        const searchInput = document.getElementById("searchInput");
+        const readMore = document.getElementById("readMore");
+        const discountText = document.getElementById("discountText");
+
+        // Đếm ký tự khi nhập tên
+        nameInput.addEventListener("input", () => {
+            nameCount.textContent = nameInput.value.length + " ký tự";
+        });
+
+        // Xử lý khi submit
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (nameInput.value.trim() === "" || document.getElementById("email").value.trim() === "") {
+                alert("Vui lòng nhập đầy đủ Name và Email!");
+                return;
+            }
+            alert("Cảm ơn bạn " + nameInput.value + " đã liên hệ!");
+        });
+
+        // Reset form
+        form.addEventListener("reset", () => {
+            alert("Form đã được reset!");
+            nameCount.textContent = "0 ký tự";
+        });
+
+        // Xử lý Search
+        searchBtn.addEventListener("click", () => {
+            const keyword = searchInput.value.trim();
+            if (keyword === "") {
+                alert("Vui lòng nhập từ khóa tìm kiếm!");
+            } else {
+                alert("Bạn vừa tìm: " + keyword);
+            }
+        });
+
+        // Xử lý Read More
+        readMore.addEventListener("click", () => {
+            discountText.textContent = "Special Summer Sale! Giảm giá 50% cho tất cả các loại hoa từ 1/7 đến 31/7.";
+        });
+    </script>
+</body>
+
+</html>
